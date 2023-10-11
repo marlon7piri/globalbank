@@ -13,6 +13,15 @@ body {
 }
 
 
+form  textarea{
+  resize: none;
+}
 
+form input{
+  padding: 5px;
+}
+form label{
+  color:white
+}
 
 

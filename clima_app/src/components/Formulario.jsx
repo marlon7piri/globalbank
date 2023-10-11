@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 const initialState = {
   nombre: "",
   fecha_nacimiento: "",
-  nota: ""
+  nota: "",
 };
 function Formulario({ handlerChange }) {
   const [form, setForm] = useState(initialState);
@@ -11,7 +11,7 @@ function Formulario({ handlerChange }) {
   const handlerData = (e) => {
     e.preventDefault();
 
-    const diferencia = validarfechanaiciento();
+    const diferencia = validarfechaNacimiento();
 
     console.log(diferencia);
 
@@ -25,7 +25,7 @@ function Formulario({ handlerChange }) {
     
       handlerChange(form);
 
-      setForm(initialState);
+      setForm(initialState); 
     }
   };
 
@@ -36,7 +36,7 @@ function Formulario({ handlerChange }) {
     });
   };
 
-  const validarfechanaiciento = () => {
+  const validarfechaNacimiento = () => {
     const fecha_elegida = form.fecha_nacimiento.substring(0, 4);
     const fecha_actual = new Date();
 
@@ -49,14 +49,10 @@ function Formulario({ handlerChange }) {
     return diferencia;
   };
 
-  /*   useEffect(() => {
-    validarfechanaiciento();
-  }, [menor]); */
-
   return (
     <form onSubmit={handlerData}>
       <div className="bg-gray-500 p-4 flex flex-col gap-4 w-[400px]  h-[400px] m-auto">
-        <label htmlFor="" className="text-gray-900">
+        <label htmlFor="" >
           Nombre
         </label>
         <input
@@ -65,7 +61,7 @@ function Formulario({ handlerChange }) {
           id=""
           required
           onChange={llenarCampos}
-          value={form.nombre}
+          value={form.nombre} pattern="^[A-Za-z]+$" title="Solo se permiten letras de la A a la Z"
         />
         <label htmlFor="">Fecha de Nacimiento</label>
 
@@ -85,7 +81,7 @@ function Formulario({ handlerChange }) {
           cols="30"
           rows="10"
           onChange={llenarCampos}
-          value={form.nota}
+          value={form.nota} 
         ></textarea>
 
         <button className=" bg-red-500 disabled:true">Enviar</button>
