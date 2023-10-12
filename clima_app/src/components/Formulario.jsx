@@ -19,6 +19,7 @@ function Formulario({ handlerChange }) {
       alert(
         "eres menor de edad o la fecha elegida es mayor que la fecha actual"
       );
+      setForm(initialState);
       return;
     }else{
       handlerChange(form);
