@@ -15,6 +15,7 @@ body {
 
 form  textarea{
   resize: none;
+  padding: 10px;
 }
 
 form input{

@@ -20,18 +20,15 @@ function App() {
     setAdds([...adds, data]);
   };
 
-  /* const cargarDatos = () => {
-    console.log(persona);
-    setAdds([...adds, persona]);
-  }; */
-
   useEffect(() => {
     localStorage.setItem("datos", JSON.stringify(adds));
   }, [adds]);
 
   return (
     <div className="p-4 m-auto">
-      <h1 className="lg:text-center  md:text-center sm:text-center mt-4">Prueba Banco</h1>
+      <h1 className="lg:text-center  md:text-center sm:text-center mt-4">
+        Prueba Banco
+      </h1>
       <Formulario handlerChange={handlerChange} />
       <CardForm adds={adds} setAdds={setAdds} />
     </div>
