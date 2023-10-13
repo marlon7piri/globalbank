@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react";
+import  { useEffect, useState } from  "react"
 
-import "./App.css";
-import Formulario from "./components/Formulario";
-import CardForm from "./components/CardForm";
+
+import  Formulario from  "./components/Formulario"
+import  CardForm from  "./components/CardForm"
 
 function App() {
   const [adds, setAdds] = useState(() => {
@@ -35,4 +35,4 @@ function App() {
   );
 }
 
-export default App;
+export default   App;

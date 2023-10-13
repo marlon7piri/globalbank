@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import  React, { useEffect, useState } from "react"
+import  validarfechaNacimiento  from '../test/validarfecha.js'
 
 const initialState = {
   nombre: "",
@@ -13,7 +14,7 @@ function Formulario({ handlerChange }) {
   const handlerData = (e) => {
     e.preventDefault();
 
-    /*   const age = validarfechaNacimiento(); */
+ 
     console.log(edadcalculada);
     if (edadcalculada < 18) {
       alert(
@@ -30,7 +31,7 @@ function Formulario({ handlerChange }) {
   };
 
   const llenarCampos = (e) => {
-    setEdadcalculada(validarfechaNacimiento());
+    setEdadcalculada(validarfechaNacimiento(form.fecha_nacimiento));
     console.log(edadcalculada);
     setForm({
       ...form,
@@ -39,21 +40,11 @@ function Formulario({ handlerChange }) {
     });
   };
 
-  const validarfechaNacimiento = () => {
-    const fecha_elegida = form.fecha_nacimiento.substring(0, 4);
-    const fecha_actual = new Date();
 
-    const year = Number(fecha_elegida);
-    const year_actual = fecha_actual.getFullYear();
-
-    const edad = year_actual - year;
-    console.log(edad);
-    return edad;
-  };
 
   return (
-    <form onSubmit={handlerData}>
-      <div className="bg-gray-500 p-4 flex flex-col gap-4 w-[400px]  h-[400px] m-auto">
+    <form onSubmit={handlerData} title='formulario de envio'>
+      <div className="bg-gray-900 p-4 flex flex-col gap-4 w-[400px]  h-[400px] m-auto rounded-md">
         <label htmlFor="">Nombre</label>
         <input
           type="text"
@@ -74,7 +65,7 @@ function Formulario({ handlerChange }) {
           required
           onChange={llenarCampos}
           min={"1900-01-01"}
-          value={form.fecha_nacimiento}
+          value={form.fecha_nacimiento} 
         />
         <label htmlFor="">Comentarios</label>
         <textarea
@@ -86,10 +77,10 @@ function Formulario({ handlerChange }) {
           value={form.nota}
         ></textarea>
 
-        <button className=" bg-red-500 disabled:true">Enviar</button>
+        <button className=" bg-red-500 rounded-sm w-max block px-4 py-2 m-auto text-white font-black hover:bg-red-700 transition duration-500">Enviar</button>
       </div>
     </form>
   );
 }
 
-export default Formulario;
+export default  Formulario;
